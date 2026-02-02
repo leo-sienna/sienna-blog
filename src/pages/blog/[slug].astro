@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} - Sienna`}>
+  <main class="min-h-screen py-20 px-6">
+    <article class="max-w-3xl mx-auto">
+      <header class="mb-12">
+        <a href="/blog" class="link text-apple-gray-600 mb-8 inline-block">
+          ← Back to all posts
+        </a>
+        
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-sm text-apple-gray-500">
+            {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </span>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex gap-2">
+              {post.data.tags.map((tag) => (
+                <span class="px-2 py-0.5 text-xs bg-apple-gray-200 text-apple-gray-600 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        
+        <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-apple-gray-900 mb-6">
+          {post.data.title}
+        </h1>
+        
+        <p class="text-xl text-apple-gray-600 leading-relaxed">
+          {post.data.description}
+        </p>
+      </header>
+
+      <div class="prose prose-lg prose-gray max-w-none">
+        <Content />
+      </div>
+
+      <footer class="mt-16 pt-8 border-t border-apple-gray-200">
+        <p class="text-sm text-apple-gray-500">
+          Thanks for reading. Feel free to reach out if you have any questions or just want to chat.
+        </p>
+      </footer>
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,77 @@
+/* Apple-inspired global styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+      'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-apple-gray-50 text-apple-gray-900;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    @apply bg-apple-blue/20 text-apple-gray-900;
+  }
+}
+
+@layer components {
+  /* Apple-style button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-2.5
+           bg-apple-gray-900 text-white text-sm font-medium
+           rounded-full transition-all duration-200
+           hover:bg-apple-gray-700 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-2.5
+           bg-apple-gray-200 text-apple-gray-900 text-sm font-medium
+           rounded-full transition-all duration-200
+           hover:bg-apple-gray-300 active:scale-95;
+  }
+
+  /* Apple-style link */
+  .link {
+    @apply text-apple-blue hover:text-apple-blue-light transition-colors duration-200;
+  }
+
+  /* Card style */
+  .card {
+    @apply bg-white rounded-2xl p-8 shadow-sm
+           border border-apple-gray-200/50
+           transition-all duration-300 hover:shadow-md;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-4xl md:text-5xl font-semibold tracking-tight text-apple-gray-900;
+  }
+
+  /* Subsection heading */
+  .subsection-heading {
+    @apply text-2xl md:text-3xl font-medium tracking-tight text-apple-gray-900;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
