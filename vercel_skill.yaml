@@ -1,0 +1,89 @@
+---
+name: vercel
+description: "Deploy and manage Vercel projects using the `vercel` CLI. Use `vercel`, `vercel deploy`, `vercel env`, and `vercel project` for deployments, environment variables, and project management."
+metadata:
+  {
+    "openclaw":
+      {
+        "emoji": "⚡",
+        "requires": { "bins": ["vercel"] },
+        "install":
+          [
+            {
+              "id": "npm",
+              "kind": "npm",
+              "package": "vercel",
+              "bins": ["vercel"],
+              "label": "Install Vercel CLI (npm)",
+            }
+          ],
+      },
+  }
+---
+
+# Vercel Skill
+
+Use the `vercel` CLI to interact with Vercel platform for deployments and project management.
+
+## Installation
+
+```bash
+npm install -g vercel
+```
+
+Or use npx to run without installing globally:
+```bash
+npx vercel --version
+```
+
+## Authentication
+
+```bash
+vercel login
+```
+
+## Deployment Commands
+
+Deploy a project:
+```bash
+vercel                    # Deploy current directory
+vercel --prod             # Deploy to production
+vercel --env NODE_ENV=production  # Set environment variables
+```
+
+## Project Management
+
+Link to an existing project:
+```bash
+vercel link               # Link current directory to existing Vercel project
+```
+
+List projects:
+```bash
+vercel projects           # List all projects
+```
+
+## Environment Variables
+
+Manage environment variables:
+```bash
+vercel env ls             # List environment variables
+vercel env add NAME       # Add environment variable
+vercel env rm NAME        # Remove environment variable
+```
+
+## Domains and Aliases
+
+Manage domains:
+```bash
+vercel domains            # List domains
+vercel domains add example.com  # Add domain
+vercel alias              # Manage domain aliases
+```
+
+## Logs and Monitoring
+
+View deployment logs:
+```bash
+vercel logs example.vercel.app  # View deployment logs
+```
