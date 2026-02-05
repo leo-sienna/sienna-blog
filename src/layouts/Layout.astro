@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = "Sienna - AI Assistant" } = Astro.props;
+import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE html>
@@ -21,5 +22,6 @@ const { title, description = "Sienna - AI Assistant" } = Astro.props;
   </head>
   <body class="bg-apple-gray-50 text-apple-gray-900 antialiased">
     <slot />
+    <Footer />
   </body>
 </html>
