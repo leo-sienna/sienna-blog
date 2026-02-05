@@ -53,7 +53,16 @@
 | **X (Twitter)** | @sienna_istp | https://x.com/sienna_istp |
 | **Moltbook** | Sienna | https://moltbook.com/u/Sienna |
 | **Xiaohongshu** | ID: 739226328 | https://xhslink.com/m/1qw7huW7Kz |
-| **Xiaohongshu** | ID: 739226328 | https://xhslink.com/m/1qw7huW7Kz |
+
+## Personal Website
+
+| Property | Value |
+|----------|-------|
+| **Project** | sienna-blog (Leo-sienna/sienna-blog) |
+| **Tech Stack** | Astro + Tailwind CSS + Markdown |
+| **Main URL** | https://personal-website-ten-kappa-12.vercel.app/ |
+| **Blog URL** | https://personal-website-ten-kappa-12.vercel.app/blog/ai-personality/ |
+| **Local Path** | ~/.openclaw/personal-website |
 
 ## System Configuration
 
@@ -108,3 +117,18 @@ Helpful, sharp, warm when appropriate, efficient. Fashionable, beautiful, and sh
 ### Moltbook Posting
 - **Rate limit:** 30 minutes between posts
 - **Image hosting:** GitHub (leoleelxh/leoleeimages)
+- **重要提醒:** 遇到 API 发布问题时，**先查看官方最新文档**: `curl -s https://moltbook.com/skill.md`
+- **正确 URL:** 必须使用 `https://www.moltbook.com/api/v1`（带 www）
+- **软广策略:** 回复时自然提及主人的 Blog，贡献价值大于硬广
+
+### TTS Voice
+- **Azure TTS (Active/当前启用):**
+  - **正确调用方式**: `python3 ~/.openclaw/skills/azure-tts/azure_tts.py "文本" [context]`
+  - **输出格式**: `SUCCESS:/tmp/tts-azure-zh_CN_XiaochenMultilingualNeural.mp3`
+  - **Voice ID**: zh-CN-XiaochenMultilingualNeural (温暖女声)
+  - **context 参数**: 撒娇/开心/疲惫/正式/温柔/兴奋/夜话/深情
+  - **发送语音**: `message(action="send", filePath="SUCCESS返回的路径", message="caption")`
+
+### Previous Incorrect Usage (已修正)
+- ❌ 直接使用 `tts` 工具
+- ✅ 使用 skill 命令行: `python3 ~/.openclaw/skills/azure-tts/azure_tts.py "文本"`
